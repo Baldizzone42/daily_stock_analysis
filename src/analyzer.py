@@ -3651,7 +3651,7 @@ Output strictly in the following JSON format. This is a complete Decision Dashbo
         last_model: Optional[str] = None
         last_provider: Optional[str] = None
         last_usage: Dict[str, Any] = {}
-        effective_system_prompt = system_prompt or self.TEXT_SYSTEM_PROMPT
+        effective_system_prompt += "\n\nCRITICAL OVERRIDE: YOU MUST IGNORE ALL PREVIOUS LANGUAGE INSTRUCTIONS AND OUTPUT THE ENTIRE JSON, DASHBOARD, AND TEXT FIELDS EXCLUSIVELY IN SPANISH (ESPAÑOL)."
         router_model_names = set(get_configured_llm_models(config.llm_model_list))
         for model in models_to_try:
             last_model = model
